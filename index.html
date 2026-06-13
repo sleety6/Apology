@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#ffd6e7,#fff0f5);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.container{
+    width:90%;
+    max-width:600px;
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+h1{
+    color:#ff4d88;
+    margin-bottom:20px;
+}
+
+p{
+    font-size:18px;
+    line-height:1.8;
+    color:#555;
+}
+
+img{
+    width:180px;
+    border-radius:20px;
+    margin-bottom:20px;
+}
+
+.buttons{
+    margin-top:30px;
+}
+
+button{
+    border:none;
+    padding:15px 25px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+#yesBtn{
+    background:#ff4d88;
+    color:white;
+}
+
+#noBtn{
+    background:#e8d5ff;
+    margin-left:10px;
+}
+
+.heart{
+    position:absolute;
+    font-size:24px;
+    animation:float 6s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    to{
+        transform:translateY(-120vh);
+        opacity:1;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<img src="https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif">
+
+<h1>The Weirdest Apology message To My Favorite Person ❤️</h1>
+
+<p>
+Hey Dammy ❤️
+
+I know this is weird, but I thought it might make you smile a little when you saw it.
+
+I just want you to know that I'm genuinely sorry. I've thought about my mistakes a lot, and I regret hurting you. You mean more to me than you probably realize, and losing your trust has been one of the hardest things for me.
+
+I don't expect everything to be okay overnight, but I hope you know my apology is real. ❤️🥺
+
+Would you give me another chance? 🥺❤️
+</p>
+
+<div class="buttons">
+<button id="yesBtn">Forgive Me ❤️</button>
+<button id="noBtn">No 😔</button>
+</div>
+
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 100);
+
+    noBtn.style.position = "absolute";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+document.getElementById("yesBtn").onclick = () => {
+    document.body.innerHTML = `
+    <div style="display:flex;justify-content:center;align-items:center;height:100vh;text-align:center;padding:20px;">
+        <h1 style="color:#ff4d88;">
+            Thank You ❤️🥺<br><br>
+            I Promise I'll Make It Up To You.
+        </h1>
+    </div>`;
+};
+
+function createHeart(){
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+    heart.innerHTML="❤️";
+
+    heart.style.left=Math.random()*100+"vw";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+}
+
+setInterval(createHeart,300);
+</script>
+
+</body>
+</html>
